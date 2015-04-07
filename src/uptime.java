@@ -53,11 +53,12 @@ public class uptime {
 	public static String getSystemUptime() throws Exception {
 		String uptime = null;
 	    String os = System.getProperty("os.name").toLowerCase();
+	    
 	    if (os.contains("win")) {
 	    	Process uptimeProc 	= Runtime.getRuntime().exec("net stats srv");
 	        BufferedReader in 	= new BufferedReader(new InputStreamReader(uptimeProc.getInputStream()));
-	        String line;
 	        
+	        String line;
 	        while ((line = in.readLine()) != null) {
 	        	if (line.startsWith("Statistiques depuis")) {
 	            	if (uptime == null) {
@@ -69,8 +70,7 @@ public class uptime {
 	        }
 	    } else {
 	    	uptime = "OS non pris en charge";
-	    }
-	    	
+	    }	
 		return uptime;
 	}
 	
