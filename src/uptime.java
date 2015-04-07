@@ -26,7 +26,7 @@ public class uptime {
 		dateUptime.setText(getSystemUptime());
 		dateDuJour.setText(getTodayDate());
 		
-		panneau.setPreferredSize(new Dimension(250, 150));
+		panneau.setPreferredSize(new Dimension(250, 80));
 		panneau.setBackground(Color.WHITE);
 		
 		cadre.setContentPane(panneau);
@@ -53,7 +53,7 @@ public class uptime {
 	        	if (line.startsWith("Statistiques depuis")) {
 	            	if (uptime == null) {
 	            		uptime = line;
-	            	}else {
+	            	} else {
 	            		uptime += line;
 	            	}
 	            }
