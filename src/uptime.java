@@ -13,6 +13,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class uptime {
+	static int debug = 0;	//0 pas de debug - 1 debug actif.
+	
 	public static void main(String[] args) throws Exception {
 		JFrame cadre 		= new javax.swing.JFrame("Uptime de ma machine");
 		JPanel panneau 		= new JPanel();
@@ -25,6 +27,14 @@ public class uptime {
 		texteBas.setText("Uptime de la machine : ");
 		dateUptime.setText(getSystemUptime());
 		dateDuJour.setText(getTodayDate());
+		
+		if (debug > 0) {
+			System.out.println("================");
+			System.out.println(getSystemUptime());
+			System.out.println("================");
+			System.out.println(getTodayDate());
+			System.out.println("================");
+		}
 		
 		panneau.setPreferredSize(new Dimension(250, 80));
 		panneau.setBackground(Color.WHITE);
@@ -49,7 +59,6 @@ public class uptime {
 	        String line;
 	        
 	        while ((line = in.readLine()) != null) {
-	        	//System.out.println(line);
 	        	if (line.startsWith("Statistiques depuis")) {
 	            	if (uptime == null) {
 	            		uptime = line;
