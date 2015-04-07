@@ -44,12 +44,13 @@ public class uptime {
 		String uptime = null;
 	    String os = System.getProperty("os.name").toLowerCase();
 	    if (os.contains("win")) {
-	    	Process uptimeProc = Runtime.getRuntime().exec("net stats srv");
-	        BufferedReader in = new BufferedReader(new InputStreamReader(uptimeProc.getInputStream()));
+	    	Process uptimeProc 	= Runtime.getRuntime().exec("net stats srv");
+	        BufferedReader in 	= new BufferedReader(new InputStreamReader(uptimeProc.getInputStream()));
 	        String line;
 	        
 	        while ((line = in.readLine()) != null) {
-	            if (line.startsWith("Statistiques depuis")) {
+	        	//System.out.println(line);
+	        	if (line.startsWith("Statistiques depuis")) {
 	            	if (uptime == null) {
 	            		uptime = line;
 	            	}else {
